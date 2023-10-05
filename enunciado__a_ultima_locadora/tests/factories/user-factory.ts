@@ -1,5 +1,4 @@
 import prisma from "../../src/database";
-//import { UserInput } from "../../src/repository";
 import {faker} from "@faker-js/faker"
 
 export async function createUser(adult = true) {
@@ -12,10 +11,10 @@ export async function createUser(adult = true) {
       cpf: faker.internet.ip(),
     }
   })
-  
 }
 
-
 function genetateBirthDate(adult : boolean) {
-  return adult ? faker.date.birthdate({min: 18, mode: 'age'}) : faker.date.birthdate({min:10, max:17, mode: 'age'})
+  return adult 
+    ? faker.date.birthdate({min: 18, mode: 'age'}) 
+    : faker.date.birthdate({min:10, max:17, mode: 'age'})
 }
